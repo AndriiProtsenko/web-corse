@@ -40,7 +40,7 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	margin: 10px; /* встановіть потрібний відступ зверху та зліва */
+	margin: 10px; 
   }
   .circle1 {
 	width: 15px;
@@ -51,7 +51,7 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	margin-top: 10px; /* встановлюємо відступ зверху */
+	margin-top: 10px; 
     margin-left: 35px;
   }
   .circle2 {
@@ -63,7 +63,7 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	margin-top: 10px; /* встановлюємо відступ зверху */
+	margin-top: 10px; 
     margin-left: 60px;
   }
 .grey {
@@ -96,4 +96,5 @@
 .r2 {
 	border-top-right-radius: 10px;
 	border-top-left-radius: 10px;
+	
 }

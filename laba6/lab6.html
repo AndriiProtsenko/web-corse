@@ -1,95 +1,107 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-  <title>Lab5</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Підключення Bootstrap CSS -->
+  <title>Lab6</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <!-- Підключення Font Awesome CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- Підключення стилів -->
   <link rel="stylesheet" href="lab5.css">
 </head>
 <body>
-  <div  style="background-color: #11a2a2; width: 98%; height: 96%; border-radius: 20px; margin-left: 20px;">
-    <div class="row justify-content-center">
-      <div class="col-lg-3 col-md-6 col-sm-8 col-xs-10" style=" margin-top: 20px; margin-bottom: 20px;" >
-        <div style="background-color: #aa9f9f; height: 700px; border-radius: 20px; " class="card  text-white">
-          <div class="card-body">
-            <div class="text-center">
-              <img src="photo.jpg" alt="avatar" class="img-fluid" style="max-width: 150px; border-radius: 20px; ">
-              <h2 class="mt-3 mb-0">Andrii Protsenko</h2>
-              <p class="mb-3 py-1 px-3 rounded-pill" style="background-color: #d1caca; display: inline-block; font-size: 16px;">Creative Director</p>
-              <div class="mt-4 mb-3">
-                <a href="#" class="fa fa-facebook fa-lg mr-3"></a>
-                <a href="#" class="fa fa-twitter fa-lg mr-3"></a>
-                <a href="#" class="fa fa-telegram fa-lg mr-3"></a>
-              </div>
-              <ul class="list-unstyled">
-                <li class="mb-2"><i class="fa fa-birthday-cake mr-2"></i>June 26, 2004</li>
-                <li class="mb-2"><i class="fa fa-map-marker mr-2"></i>Zaporizhia, Ukraine</li>
-                <li class="mb-2"><i class="fa fa-envelope mr-2"></i>example@gmail.com</li>
-                <li class="mb-2"><i class="fa fa-phone mr-2"></i>+380930988587</li>
-                <li class="mb-2"><i class="fa fa-instagram mr-2"></i>@andrii_protsenko</li>
-              </ul>
-              <div class="mt-4">
-                <button class="btn btn-light btn-lg font-weight-bold ">&#10515; Download CV</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-8 col-md-6 col-sm-4 col-xs-2" style="background-color: #aa9f9f; border-radius: 20px; margin-top: 20px; height: 700px ">
-        <div class="d-flex flex-column align-items-start">
-          <nav class="nav">
-            <a class="nav-link  font-weight-bold" href="#">ABOUT</a>
-            <a class="nav-link" href="#">RESUME</a>
-            <a class="nav-link" href="#">PORTFOLIO</a>
-            <a class="nav-link" href="#">BLOG</a>
-            <a class="nav-link" href="#">CONTACT</a>
-          </nav>
-        </div>
-        <br><br>
-        <h3 class="pl-5 mt-0">About Me</h3>
-        <div class="description pl-5">
-          <p>I'm Creative Director and Ul/UX Designer from Kyiv, Ukraine, working in web development and print media. I enjoy turning complex problems into simple, beautiful and intuitive designs.</p>
-          <p>My job is to build your website so that it is functional and user-friendly but at the same time attractive. Moreover, I add personal touch to your product and make sure that is eye-catching and easy to use. My aim is to bring across your message and identity in the most creative way. I created web design for many famous brand companies.</p>
-        </div>
-        <h4 class="pl-5 mt-5">What I'm Doing</h4>
+  <div class="container-fluid p-0">
+    <div class="row no-gutters">
+      <div class="col-md-6 red-rectangle">
         <div class="row">
-          <div class="col-md" style="background-color: #e49e9e; width: 300px; height: 100px; border-radius: 10px; margin-left: 60px; margin-right: 20px;">
-            <img src="photo3.jpg" alt="Web Design" class="mr-3" style="width: 30px; height: 35px;">
-            <div class="d-inline-block align-middle">
-              <p class="col-6">Web Design</p>
-              <p>The most modern and high-quality design made at a professional level.</p>
+          <div class="col-md-6">
+            <div class="text-center">
+              <img src="photo.jpg" alt="avatar" class="img-fluid rounded-circle">
+              <h2 class="mt-3">Andrii Protsenko</h2>
+              <p class="bg-light rounded-pill px-4 py-2">Creative Director</p>
+            </div>
+            <div class="text-center">
+              <span class="fa fa-facebook mr-3"></span>
+              <span class="fa fa-twitter mr-3"></span>
+              <span class="fa fa-telegram mr-3"></span>
+              <br>
+              <span class="mr-3">&#128197; June 26, 2004</span>
+              <i class="fa fa-map-marker mr-3"></i> Zaporizhia, Ukraine
+              <br>
+              <span class="mr-3">&#9993; example@gmail.com</span>
+              <span class="mr-3">&#128222; + 380930988587</span>
+              <br>
+              <i class="fa fa-instagram mr-3"></i> @andrii_protsenko
+              <br><br>
+              <div class="btn btn-outline-light">&#10515; Download CV</div>
             </div>
           </div>
-          <div class="col-6" style="background-color: #e49e9e; width: 300px; height: 100px; border-radius: 10px; margin-right: 20px;">
-            <img src="photo4.jpg" alt="Web Development" class="mr-3" style="width: 35px; height: 35px;">
-            <div class="d-inline-block align-middle">
-              <p class="font-weight-bold mb-0">Web Development</p>
-              <p>High-quality development of sites at the professional level.</p><b>
-            </div>
-          </div>
-          <br>
-          <div class="col-6" style="background-color: #e49e9e; width: 300px; height: 200px; border-radius: 10px; margin-left: 60px; margin-right: 20px;">
-            <img src="photo2.jpg" alt="Mobile Apps" class="mr-3" style="width: 35px; height: 35px;">
-            <div class="d-inline-block align-middle">
-              <p class="font-weight-bold mb-0">Mobile Apps</p>
-              <p>Professional development of applications for IOS and Android.</p>
-            </div>
-          </div>
-          <div class="col-6" style="background-color: #e49e9e; width: 300px; height: 200px; border-radius: 10px; margin-left: 60px; margin-right: 20px;">
-            <img src="photo1.jpg" alt="Photography" class="mr-3" style="width: 35px; height: 35px;">
-            <div class="d-inline-block align-middle">
-              <p class="font-weight-bold mb-0">Photography</p>
-              <p>I make high-quality photos of any category at a professional level.</p>
-            </div>
+          <div class="col-md-6 buttons text-center">
+            <div class="btn btn-outline-light my-2">ABOUT</div>
+            <div class="btn btn-outline-light my-2">RESUME</div>
+            <div class="btn btn-outline-light my-2">PORTFOLIO</div>
+            <div class="btn btn-outline-light my-2">BLOG</div>
+            <div class="btn btn-outline-light my-2">CONTACT</div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</body>
-</html>
+      <div class="col-md-6">
+        <div class="py-5 px-4">
+          <h3 class="mt-0">About Me</h3>
+          <div class="description mb-4">
+            I'm Creative Director and Ul/UX Designer from Kyiv, Ukraine, working in web
+            development and print media. I enjoy turning complex problems into simple, beautiful
+            and intuitive designs.<br>
+            My job is to build your website so that it is functional and user-friendly but at the
+            same time attractive. Moreover, I add personal touch to your product and make sure that
+            is eye-catching and easy to use. My aim is to bring across your message and identity in
+            the most creative way. I created web design for many famous brand companies.
+          </div>
+          <h4>What I'm Doing</h4>
+          <div class="row no-gutters">
+            <div class="col-md-6">
+              <div class="space my-2">
+                <div class="circle-icon">
+                <span class="fa fa-laptop"></span>
+                </div>
+                <div class="text">
+                <h5>Web Design</h5>
+                <p>I design and develop responsive and user-friendly websites using the latest web technologies and standards.</p>
+                </div>
+                </div>
+                </div>
+                <div class="col-md-6">
+                <div class="space my-2">
+                <div class="circle-icon">
+                <span class="fa fa-paint-brush"></span>
+                </div>
+                <div class="text">
+                <h5>Graphic Design</h5>
+                <p>I create visual concepts using computer software or by hand to communicate ideas that inspire, inform, and captivate consumers.</p>
+                </div>
+                </div>
+                </div>
+                <div class="col-md-6">
+                <div class="space my-2">
+                <div class="circle-icon">
+                <span class="fa fa-camera"></span>
+                </div>
+                <div class="text">
+                <h5>Photography</h5>
+                <p>I specialize in portraits, landscapes, and product photography for various clients including magazines and advertising agencies.</p>
+                </div>
+                </div>
+                </div>
+                <div class="col-md-6">
+                <div class="space my-2">
+                <div class="circle-icon">
+                <span class="fa fa-video-camera"></span>
+                </div>
+                <div class="text">
+                <h5>Video Editing</h5>
+                <p>I use digital software to edit and manipulate video footage for various clients including independent filmmakers and advertising agencies.</p>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                
+      

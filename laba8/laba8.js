@@ -1,4 +1,4 @@
-'use strict';
+
 //Developer, Designer & Manager.
 class Employee {
     constructor(firstName, secondName, baseSalary, experienceInYears) {
@@ -88,7 +88,7 @@ class Department {
     }
     logEmployeeInfo(employee) {
         console.log(employee.firstName + " " + employee.secondName + " отримав " + employee.CalculateSalary() +
-            " лимонів з АТБ у якості заробітньої плати\n");
+            " лимонів з АТв у якості заробітньої плати\n");
     }
 }
 
@@ -117,6 +117,3 @@ let Apple = new Department(managers);
 
 Apple.giveSalary();
 
-// код, щоб не закривалася консолька:
-var readline = require('readline');
-var rl = readline.createInterface(process.stdin, process.stdout);

@@ -1,5 +1,3 @@
-
-//Developer, Designer & Manager.
 class Employee {
     constructor(firstName, secondName, baseSalary, experienceInYears) {
         this.firstName = firstName;
@@ -7,6 +5,7 @@ class Employee {
         this.baseSalary = baseSalary;
         this.experienceInYears = experienceInYears;
     }
+
     CalculateSalary() {
         let countedSalary = 0;
 
@@ -14,54 +13,44 @@ class Employee {
             countedSalary = this.baseSalary;
         } else if (this.experienceInYears < 5) {
             countedSalary = this.baseSalary + 200;
-        } else if (this.experienceInYears >= 5) {
+        } else {
             countedSalary = this.baseSalary * 1.2 + 500;
         }
 
         return countedSalary;
     }
 }
-class Developer extends Employee {
-    constructor(firstName, secondName, baseSalary, experienceInYears) {
-        super(firstName, secondName, baseSalary, experienceInYears);
-    }
-}
+
+class Developer extends Employee {}
+
 class Designer extends Employee {
     constructor(firstName, secondName, baseSalary, experienceInYears, efficiencyСoefficient) {
         super(firstName, secondName, baseSalary, experienceInYears);
-
-        if (efficiencyСoefficient < 0) {
-            this.efficiencyСoefficient = 0;
-        } else if (efficiencyСoefficient > 1) {
-            this.efficiencyСoefficient = 1;
-        } else {
-            this.efficiencyСoefficient = efficiencyСoefficient;
-        }
+        this.efficiencyСoefficient = Math.max(0, Math.min(1, efficiencyСoefficient));
     }
+
     CalculateSalary() {
         return super.CalculateSalary() * this.efficiencyСoefficient;
     }
 }
+
 class Manager extends Employee {
     constructor(firstName, secondName, baseSalary, experienceInYears, employees) {
         super(firstName, secondName, baseSalary, experienceInYears);
         this.employees = employees;
     }
+
     CalculateSalary() {
         let countedSalary = super.CalculateSalary();
+
         if (this.employees.length > 10) {
             countedSalary += 300;
         } else if (this.employees.length > 5) {
             countedSalary += 200;
         }
 
-        let counter = 0;
-        for (let i = 0; i < this.employees.length; i++) {
-            if (this.employees[i].constructor.name === "Developer") {
-                counter++;
-            }
-        }
-        let coefficient = counter / this.employees.length;
+        const counter = this.employees.filter(employee => employee instanceof Developer).length;
+        const coefficient = counter / this.employees.length;
 
         if (coefficient > 0.5) {
             countedSalary += countedSalary * 0.1;
@@ -70,50 +59,47 @@ class Manager extends Employee {
         return countedSalary;
     }
 }
+
 class Department {
     constructor(managers) {
         this.managers = managers;
     }
+
     giveSalary() {
-        if (this.managers === null || this.managers === undefined) {
+        if (!this.managers) {
             return;
         }
 
-        for (let i = 0; i < managers.length; i++) {
-            this.logEmployeeInfo(managers[i]);
-            for (let j = 0; j < managers[i].employees.length; j++) {
-                this.logEmployeeInfo(managers[i].employees[j]);
+        for (const manager of this.managers) {
+            this.logEmployeeInfo(manager);
+
+            for (const employee of manager.employees) {
+                this.logEmployeeInfo(employee);
             }
         }
     }
+
     logEmployeeInfo(employee) {
-        console.log(employee.firstName + " " + employee.secondName + " отримав " + employee.CalculateSalary() +
-            " лимонів з АТв у якості заробітньої плати\n");
+        console.log(`${employee.firstName} ${employee.secondName} отримав ${employee.CalculateSalary()} шекелей\n`);
     }
 }
 
-let SeniorPomidorDeveloper = new Developer("Хацкер", "Хацкеровий", 500, 6);
-let MiddleDeveloper = new Developer("Рустем", "Жукович", 300, 3);
-let SeniorDesigner = new Designer("Джуді", "Кавуновна", 400, 4, 0.78);
-let JuniorDesigner = new Designer("Вольф", "Шукузе", 100, 1, 0.86);
+const SeniorDeveloper = new Developer("Дмитро", "Вікторович", 400, 6);
+const MiddleDeveloper = new Developer("Артем", "Іванович", 300, 3);
+const MiddleDeveloper2 = new Developer("Руслан", "Олегович", 350, 2);
+const SeniorDesigner = new Designer("Ігор", "Васильович", 400, 4, 0.77);
+const JuniorDesigner = new Designer("Андрій", "Олександрович", 100, 1, 0.39);
 
-let topManagerTeam = [];
-topManagerTeam.push(SeniorPomidorDeveloper);
-topManagerTeam.push(MiddleDeveloper);
-topManagerTeam.push(SeniorDesigner);
+const FirstManagerTeam = [MiddleDeveloper2, SeniorDesigner,];
 
-let TopManager = new Manager("Йохан", "Райнович", 900, 5, topManagerTeam);
+const FirstManager = new Manager("Герман", "Генадійович(manager1)", 900, 5, FirstManagerTeam);
 
-let justManagerTeam = [];
-justManagerTeam.push(JuniorDesigner);
+const SecondManagerTeam = [SeniorDeveloper, MiddleDeveloper, JuniorDesigner,];
 
-let JustManager = new Manager("Мія", "Жакевич", 400, 3, justManagerTeam);
+const SecondManager = new Manager("Олександр", "Олексійович(manager2)", 900, 5, SecondManagerTeam);
 
-let managers = [];
-managers.push(TopManager);
-managers.push(JustManager);
+const managers = [FirstManager, SecondManager,];
 
-let Apple = new Department(managers);
+const Company = new Department(managers);
 
-Apple.giveSalary();
-
+Company.giveSalary();

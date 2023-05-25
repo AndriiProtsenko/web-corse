@@ -1,24 +1,23 @@
-'use strict'
+'use strict';
 
 class Dog {
     constructor(id, title, sex, age, description, dogImage) {
-        {
-            this.id = id;
-            this.title = title;
-            this.sex = sex;
-            this.age = age;
-            this.description = description;
-            this.dogImage = dogImage;
-        }  
+        this.id = id;
+        this.title = title;
+        this.sex = sex;
+        this.age = age;
+        this.description = description;
+        this.dogImage = dogImage;
     }
 }
+
 function openModal(dog) {
-    let modal = document.getElementById("modal");
-    let dogImage = document.getElementById("dog-img");
-    let dogName = document.getElementById("dog-name");
-    let dogSex = document.getElementById("dog-sex");
-    let dogAge = document.getElementById("dog-age");
-    let dogPersonality = document.getElementById("dog-personality");
+    let modal = document.getElementById('modal');
+    let dogImage = document.getElementById('dog-img');
+    let dogName = document.getElementById('dog-name');
+    let dogSex = document.getElementById('dog-sex');
+    let dogAge = document.getElementById('dog-age');
+    let dogPersonality = document.getElementById('dog-personality');
 
     dogImage.src = 'https://usersdogs.dmytrominochkin.cloud' + dog.dogImage;
     dogName.textContent = dog.title;
@@ -26,20 +25,19 @@ function openModal(dog) {
     dogAge.textContent = dog.age;
     dogPersonality.textContent = dog.description;
 
-    modal.style.display = "block";
+    modal.style.display = 'block';
 }
+
 function closeModal() {
     let modal = document.getElementById('modal');
     modal.style.display = 'none';
 }
 
-// --------------
-
 const getDogs = async function () {
-    const res = await fetch('https://usersdogs.dmytrominochkin.cloud/dogs')
-    if (!res.ok) throw new Error('Не побачити собачок :(')
-    return await res.json()
-}
+    const res = await fetch('https://usersdogs.dmytrominochkin.cloud/dogs');
+    if (!res.ok) throw new Error('Не побачити собачок :(');
+    return await res.json();
+};
 
 let mainContainer = document.getElementById('main');
 
@@ -50,10 +48,9 @@ getDogs()
             dogContainer.classList.add('dog-container');
             dogContainer.style.marginTop = '1em';
 
-
-            dogContainer.onclick = function () {
+            dogContainer.addEventListener('click', function () {
                 openModal(item);
-            };
+            });
 
             let imgContainer = document.createElement('div');
             imgContainer.classList.add('img');
@@ -88,3 +85,5 @@ getDogs()
         console.error('Ну нема собачок(');
     });
 
+let closeBtn = document.getElementById('close-btn');
+closeBtn.addEventListener('click', closeModal);

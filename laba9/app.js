@@ -1,5 +1,3 @@
-'use strict';
-
 class Dog {
     constructor(id, title, sex, age, description, dogImage) {
         this.id = id;
@@ -11,7 +9,7 @@ class Dog {
     }
 }
 
-function openModal(dog) {
+function showModal(dog) {
     let modal = document.getElementById('modal');
     let dogImage = document.getElementById('dog-img');
     let dogName = document.getElementById('dog-name');
@@ -33,15 +31,17 @@ function closeModal() {
     modal.style.display = 'none';
 }
 
-const getDogs = async function () {
-    const res = await fetch('https://usersdogs.dmytrominochkin.cloud/dogs');
-    if (!res.ok) throw new Error('Не побачити собачок :(');
-    return await res.json();
+const fetchDogs = async function () {
+    const response = await fetch('https://usersdogs.dmytrominochkin.cloud/dogs');
+    if (!response.ok) {
+        throw new Error('Список собак не отриманий:(');
+    }
+    return await response.json();
 };
 
 let mainContainer = document.getElementById('main');
 
-getDogs()
+fetchDogs()
     .then(data => {
         data.forEach(function (item) {
             let dogContainer = document.createElement('div');
@@ -49,7 +49,7 @@ getDogs()
             dogContainer.style.marginTop = '1em';
 
             dogContainer.addEventListener('click', function () {
-                openModal(item);
+                showModal(item);
             });
 
             let imgContainer = document.createElement('div');
@@ -82,7 +82,7 @@ getDogs()
         });
     })
     .catch(error => {
-        console.error('Ну нема собачок(');
+        console.error('Помилка при завантаженні списку собак:', error);
     });
 
 let closeBtn = document.getElementById('close-btn');
